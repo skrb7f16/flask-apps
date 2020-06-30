@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message |Peoplesblog</title>
+    <link rel="stylesheet" href="{{url_for('static' , filename='css/style.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+</head>
+</head>
+<body>
+
+    <div id="bad" class="container">
+        <div class="content" style="color: {{message.color}};">
+            <p class="text-big text-center">{{message.title}}</p>
+            <p class="small-text">
+                {{message.message}}
+            </p>
+            <form action="/">
+            <button id="back" class="btn dark text-center">Go back</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

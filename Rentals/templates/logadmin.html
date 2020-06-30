@@ -1,0 +1,26 @@
+{% extends 'basic.html' %}
+{% block body %}
+<div class="alert-danger">
+  {{msg.msg}}
+</div>
+<div class="container">
+
+  <form action="/controlpanel" method="post">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Username</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Username">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your details with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="keepin">
+    <label class="form-check-label" for="exampleCheck1">Click here to stay signin</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+{% endblock %}

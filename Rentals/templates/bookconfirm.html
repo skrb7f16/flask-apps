@@ -1,0 +1,15 @@
+{% extends 'basic.html' %}
+{% block body %}
+<div class="container">
+    <h1><u>Confirm Your Preferences</u> </h1>
+    <br>
+<h2>Your Name: <span class="badge badge-secondary"> {{data.name}}</span></h2>
+<h2>Your Email: <span class="badge badge-secondary"> {{data.email}}</span></h2>
+<h2>Your Phone no.: <span class="badge badge-secondary"> {{data.phone}}</span></h2>
+<h2>Your Age: <span class="badge badge-secondary"> {{data.age}}</span></h2>
+<h2>You are a: <span class="badge badge-secondary"> {{data.category}}</span></h2>
+<h2>Choice of Food Opted: <span class="badge badge-secondary"> {{data.foodtype}}</span></h2>
+<h2>Price For Month: <span class="badge badge-secondary"> Rs {{pg.price}} </span></h2>
+    <a href="book/{{pg.sno}}" class="btn btn-primary">Change Something?</a>
+</div>
+{% endblock %}

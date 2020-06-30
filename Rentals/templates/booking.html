@@ -1,0 +1,51 @@
+{% extends 'basic.html' %}
+{% block title %} booking page {% endblock %}
+{% block body %}
+<div class="container my-3">
+    <h2>Fill Out the following form to Make a booking</h2>
+    <form action="/booked/{{pg.sno}}" method="post">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="Please enter your email" name="email">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="phoneno">Phone no</label>
+      <input type="text" class="form-control" id="phoneno" placeholder="Please enter your phone no" name="phone">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputName">Name</label>
+    <input type="text" class="form-control" id="inputNAme" placeholder="Please enter your name" name="name">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCategory">You are a</label>
+      <input type="text" class="form-control" id="inputCategory" placeholder="Student/bachelor/working" name="category">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputTime">You want to stay for</label>
+      <select id="inputTime" class="form-control" name="time">
+        <option selected>None</option>
+        <option>Permanent</option>
+        <option>Temporary</option>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputAge">Age</label>
+      <input type="text" class="form-control" id="inputAge" placeholder="Enter Age" name="age">
+    </div>
+
+         <div class="form-group col-md-3">
+      <label for="inputFood">You are a</label>
+      <select id="inputFood" class="form-control" name="foodType">
+        <option selected>None, will manage on your own</option>
+        <option>Vegetarian</option>
+        <option>Non-Vegetarian</option>
+      </select>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary"><b>Book</b></button>
+</form>
+</div>
+{% endblock %}

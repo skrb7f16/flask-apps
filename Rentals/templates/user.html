@@ -1,0 +1,30 @@
+{%extends 'basic.html' %}
+{% block title %} welcome {{user.username}} {% endblock %}
+{% block logout %} <a class="dropdown-item" href="/logout">Logout</a> {% endblock %}
+{% block CSS %}
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 10px solid black;
+}
+.dot{
+height:7px;
+width:7px;
+background-color:green;
+border-radius:50%;
+display:inline-block;
+}
+{% endblock %}
+{% block pref %}{{user.first_name}} <span class="dot"></span> {% endblock %}
+{% block body %}
+<div class="container-fluid">
+    <h3>Name: {{user.first_name}} {{user.last_name}}</h3>
+    <h3>Username: {{user.username}}</h3>
+    <h3>Phone number: {{user.number}} <a class="btn btn-primary" href="/useredit" >Edit</a> </h3>
+</div>
+<hr>
+<div class="container">
+    Do you want to add your Hostel Or Pg on our website <form action="/addingspace"><button class="btn btn-primary">Go</button></form>
+</div>
+{% endblock %}

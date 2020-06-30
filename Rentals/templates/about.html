@@ -1,0 +1,47 @@
+{% extends 'basic.html' %}
+{% block title %} about {% endblock %}
+{%block CSS%}
+.inline{
+    list-style:none;
+margin-left:auto;
+margin-right:auto;
+}
+.inline li{
+    float:left;
+padding: 10px 20px;
+}
+.inline li img {
+    vertical-align: middle;
+    border-style: none;
+    width: 700px;
+}
+{% endblock %}
+{% block body %}
+<div class="container-fluid">
+    {% set fname= 'img/' + pg.img_file %}
+    <ul class="inline">
+        <li><img src="{{ url_for('static', filename=fname)}}"></li>
+        <li>
+
+   <div class="card" style="width: 25rem; background-color:grey; color:white;">
+  <div class="card-body">
+      <h5 class="card-title"><b>{{pg.name}}</b></h5>
+      <p class="card-text">It is for {{pg.type}}</p>
+      <p class="card-text">Accomodations: {{pg.accomodations}} in a room</p>
+    <p class="card-text">Address:- {{pg.address}}</p>
+      <hr>
+      <p class="card-text">Only starting at Rs <h3><b>{{pg.price}}</b></h3></p>
+      <hr>
+      <u><b>About the pg by its landlord:</b></u>
+      <p class="card-text">{{pg.description}}</p>
+    <a href="/book/{{pg.sno}}" class="btn btn-primary" methods="post">Confirm</a>
+      <p class="card-text">Or contact the landlord of the pg u r looking</p>
+      <p>Phone no: {{pg.number}}</p>
+
+  </div>
+</div>
+
+        </li>
+    </ul>
+</div>
+{% endblock %}

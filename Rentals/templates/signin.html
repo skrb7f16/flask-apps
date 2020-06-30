@@ -1,0 +1,20 @@
+{% extends 'basic.html' %}
+{% block body %}
+<div class="alert-danger">{{msg.msg}}</div>
+<div class="container" style="padding:20px 400px;">
+<div class="card" style="width: 18rem;">
+  <img src="{{ url_for('static', filename='img/login.ico')}}" class="card-img-top" alt="..." style="width:80%;">
+  <div class="card-body">
+    <h5 class="card-title">LOGIN</h5>
+    <p class="card-text">Enter username and password below</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <form action="/userDisplay" method="post">
+    <li class="list-group-item"><input  name="uname" type="text" placeholder="Username"></li>
+    <li class="list-group-item"><input placeholder="password" name="password" type="password"></li>
+      <button type="submit" class="btn-primary">Submit</button>
+    </form>
+  </ul>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{
+    "params": {
+        "local_server": "True",
+        "local_url": "mysql://root:@localhost/peopleblog",
+        "prod_url": "mysql://root:@localhost/peopleblog",
+        "no_of_posts":2,
+        "username": "username",
+        "password": "password"
+    }
+}

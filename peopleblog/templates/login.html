@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-Admin |PeoplesBlog</title>
+    <link rel="stylesheet" href="{{url_for('static' , filename='css/style.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <p class="text-big">
+                {{msg.msg}}
+            </p>
+            <p class="test-big">
+                <form action="/admin" class="form-group" method="post">
+                    <input type="text" placeholder="Enter Your Username for admin" name="uname">
+                    <input type="password" placeholder="Enter Your password for admin" name="password">
+                    <button class="btn dark">Login</button>
+                </form>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

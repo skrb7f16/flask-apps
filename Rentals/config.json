@@ -1,0 +1,9 @@
+{
+  "params": {
+    "local_server": "True",
+    "local_url": "mysql://root:@localhost/space_rentals",
+    "prod_url": "mysql://root:@localhost/space_rentals",
+    "username": "username",
+    "password": "password"
+  }
+}

@@ -1,0 +1,28 @@
+.square{
+    width: 200px;
+    height: 200px;
+    border-style: solid;
+    border-color: black;
+}
+.grid{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    width: 618px;
+    height: 618px;
+}
+
+@media only screen and (max-width:1000px){
+    .square{
+        width:20px;
+        height: 20px;
+    }
+    .grid{
+        width: 70px;
+        height: 70px;
+    }
+    .mole{
+        width: 20px;
+    }
+}

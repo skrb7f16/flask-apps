@@ -1,0 +1,62 @@
+{% extends 'basic.html' %}
+{% block logout %} <a class="dropdown-item" href="/logoutadmin">Logout</a> {% endblock %}
+{% block CSS %}
+.aftertable {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 1;
+    border-top: 10px solid grey;
+}
+.dot{
+height:7px;
+width:7px;
+background-color:green;
+border-radius:50%;
+display:inline-block;
+}
+{% endblock %}
+{% block pref %} admin <span class="dot"></span> {% endblock %}
+{% block body %}
+<div class="container">
+    <h1>List of PGs</h1>
+
+    <table class="table">
+        <tr><th>Sno</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Number</th>
+        </tr>
+        {% for pg in pgs %}
+        <tr>
+            <td>{{pg.sno}}</td>
+            <td><a href="/about/{{pg.sno}}" style="color:black;"><b><u>{{pg.name}}</u></b></a></td>
+            <td>{{pg.address}}</td>
+            <td>{{pg.number}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <hr class="aftertable">
+    <br>
+    <table class="table">
+        <tr>
+            <th>Sno</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone number</th>
+            <th>Message</th>
+        </tr>
+        {% for con in contact %}
+        <tr>
+        <td>{{con.sno}}</td>
+        <td>{{con.name}}</td>
+        <td>{{con.email}}</td>
+        <td>{{con.number}}</td>
+        <td>{{con.message}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+        <hr class="aftertable">
+    <br>
+</div>
+{% endblock %}

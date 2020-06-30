@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeopleBlog | Home</title>
+    <link rel="stylesheet" href="{{url_for('static' , filename='css/style.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    <style>
+  table{
+      width: 100%;
+      text-align: center;
+      border: 1px solid black;
+  }
+  thead td{
+      height: 50%;
+      width: 10%;
+      text-align: center;
+      margin: 7%;
+      padding: 2%;
+      border: 1px solid black;
+  }
+  tbody td{
+      height: 50%;
+      text-align: center;
+      margin: 5%;
+      padding: 1%;
+      border: 1px solid black;
+  }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="leftNav">
+            <h1>Peoples blog</h1>
+        </div>
+        <ul class="navList" id="navlist">
+            <li><a href="/logoutadmin">Logout</a></li>
+        </ul>
+        <ul class="navList1">
+            <li><a href="/logoutadmin"><img src="static/home.png" alt="" width="20%"></a></li>
+        </ul>
+    </nav>
+    <h1 class="text-big text-center">Welcome to the admin Panel</h1>
+    <div class="container">
+        <div class="content">
+            <h1>All the posts</h1>
+            <table>
+                <thead>
+                    <td>Sno</td>
+                    <td>Username</td>
+                    <td>title</td>
+                    <td>Post</td>
+                    <td>Action</td>
+                </thead>
+                <tbody>
+                {% for post in posts %}
+                <tr>
+                    <td>{{post.sno}}</td>
+                    <td>{{post.username}}</td>
+                    <td>{{post.title}}</td>
+                    <td>{{post.description[0:20]}}</td>
+                    <td><a href="/deletePost/{{post.sno}}" class="btn dark">Delete</a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="container">
+        <div class="content">
+            <h1>All the messages</h1>
+            <table>
+                <thead>
+                    <td>Sno</td>
+                    <td>name</td>
+                    <td>email</td>
+                    <td>phone</td>
+                    <td>message</td>
+                    <td>Action</td>
+                </thead>
+                <tbody>
+                {% for mess in contacts %}
+                <tr>
+                    <td>{{mess.sno}}</td>
+                    <td>{{mess.name}}</td>
+                    <td>{{mess.email}}</td>
+                    <td>{{mess.phone}}</td>
+                    <td>{{mess.msg}}</td>
+                    <td><a href="/deleteMessage/{{mess.sno}}" class="btn dark">Delete</a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>All the Users</h1>
+            <table>
+                <thead>
+                    <td>Sno</td>
+                    <td>Username</td>
+                    <td>email</td>
+                    <td>name</td>
+                    <td>Action</td>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{user.sno}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.name}}</td>
+                    <td><a href="/deleteUser/{{user.sno}}" class="btn dark">Delete</a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</body>
+</html>

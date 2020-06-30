@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeopleBlog | Home</title>
+    <link rel="stylesheet" href="{{url_for('static' , filename='css/style.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="leftNav">
+            <h1>Peoples blog</h1>
+        </div>
+        <ul class="navList" id="navlist">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+        <ul class="navList1">
+            <li><a href="#"><img src="static/home.png" alt="" width="20%"></a></li>
+            <li><a href="#contact"><img src="static/contact.png" alt="" width="20%"></a></li>
+            <li><a href="#about"><img src="static/abo.png" alt="" width="20%"></a></li>
+            <li><a href="#write"><img src="static/write.png" alt="" width="20%"></a></li>
+        </ul>
+
+        <div class="rightNav">
+            <a href="#write"><button class="btn">Write Your Own Post</button></a>
+        </div>
+    </nav>
+    <h1 class="text-center">Blogs Posted</h1>
+    {% for post in posts %}
+    {% if loop.index is divisibleby(2) %}
+    <div class="container">
+        {% else %}
+        <div class="container left">
+            {% endif %}
+            <div class="content">
+                <p class="text-big">
+                    {{post.title}} | posted by-{{post.username}}<br> on {{post.stime}}
+                </p>
+                <p class="text-small">
+                    {{post.description}}
+                </p>
+            </div>
+            <div class="img">
+                <img src="https://source.unsplash.com/1200x900/?{{total.pics[loop.index-1]}}" alt="">
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="container">
+        <div class="content pagination">
+            <a href="{{prev}}">
+                <<-- prev</a>
+                    <a href="{{next}}">next -->></a>
+        </div>
+    </div>
+    <hr>
+    <div id="about" class="container">
+        <div class="content">
+            <p class="text-big text-center">About US</p>
+            <p class="small-text">
+                Welcome everyone to my first hosted website. My name is Shashank Kumar. Currently I am a student and i
+                made this website
+                as my practice.
+                You can post your blog here. Be specific about the title of the blog as it should be meaningful and be
+                related
+                to your blog otherwise you wont get the desired image you wanted for your post thank you.
+                Please signup before you add post. Signup with a unique username. one that has not been already in use.
+                If any problems you can contact via contact section down in the page.
+                I will read your message please enter your correct email address in contact form otherwise i wont be
+                able to contact you.
+                thankyou!
+            </p>
+        </div>
+    </div>
+    <hr>
+
+    <div id="contact" class="container">
+        <div class="content">
+            <h1>Fill out the form to contact us</h1>
+            <form action="/contact" class="form-group" method="POST">
+                <input type="text" placeholder="Enter your name" name="name">
+                <input type="email" placeholder="Enter your email" name="email">
+                <input type="text" placeholder="Enter your phone no" name="phone">
+                <textarea name="msg" id="msg" cols="30" rows="5" placeholder="Enter the message" name="msg"></textarea>
+                <button class="btn dark">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="container" id="write">
+        <div class="content">
+            <h1>Write Your Post and join us</h1>
+            <form action="/submitPost" class="form-group" method="POST">
+                <input type="text" placeholder="Enter Your username" name="username">
+                <input type="password" placeholder="Enter your password" name="password">
+                <input type="text" placeholder="Enter The Blog Title" name="title">
+                <textarea name="description" id="" cols="30" rows="6" placeholder="Enter your Blog here"
+                    name="description"></textarea>
+                <button class="btn dark">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="container" id="signup">
+        <div class="content">
+            <h1>Signup here to write Post</h1>
+            <form action="/signup" class="form-group" method="POST">
+                <input type="text" placeholder="Enter Your Name" name="name">
+                <input type="text" placeholder="Enter Your Username" name="username">
+                <input type="email" placeholder="Enter Your email" name="email">
+                <input type="password" placeholder="Choose a strong password" name="password">
+                <button class="btn dark">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="container">
+        <a href="/game" class="btn dark">Play A Game</a>
+
+    </div>
+</body>
+
+</html>

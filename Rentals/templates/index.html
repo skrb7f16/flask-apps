@@ -1,0 +1,43 @@
+{% extends 'basic.html' %}
+{% block title %}Welcome to Space rentals {% endblock %}
+{% block body %}
+<div class="container">
+    <h1>
+        <b>Welcome to Space Rentals.</b>
+    </h1>
+    <p>
+        Students and Single Bachelors find it very difficult to find a comfortable place to live in a new city.
+    </p>
+    <p>
+        Here are we provinding them a platform to find their place suited for them.
+    </p>
+    <p>
+        Below are some top rated places.
+    </p>
+</div>
+    <div class="container">
+        {% for pg in pgs %}
+        {% set fname="/img/"+pg.img_file %}
+        <div class="card mb-3" style="max-width: 1000px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{{ url_for('static', filename=fname)}}" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{pg.name}}</h5>
+        <p class="card-text">{{pg.description[:100]}} <a href="/about/{{pg.sno}}" class="text-primary">MORE</a> </p>
+        <p class="card-text"><small class="text-muted">{{pg.address}}</small></p>
+          <small class="text-muted-dark">Only starting at Rs <b><u>{{pg.price}}</u></b></small>
+          <form action="/about/{{pg.sno}}">
+          <button type="submit" class="btn btn-primary">BOOK</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
